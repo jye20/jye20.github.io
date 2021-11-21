@@ -1,17 +1,13 @@
-.navibar{
-    background-color: #68B2F5;
-}
-
-.introduction{
+.results{
     /* background-color: #68B2F5; */
     min-height: 65vh;
 }
 
-#start-button{
+.button1{
     vertical-align: middle;
 }
 
-.intro-text{
+.confirmation-text{
     /* color: rgb(56, 56, 155); */
     vertical-align: middle;
     height: 100%;
