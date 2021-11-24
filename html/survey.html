@@ -24,33 +24,40 @@
 
     <body>
         <div class="container">
-            <form class="form-class">
+            <form action="../html/results.html" s="needs-validation">
                 <div class="divider-text container">Section 1 - Basic Information</div>
                 <div class="section-divider"></div>
                 <div class="row mb-1 justify-content-center">
                     <div class="col-3">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Smith">
+                        <label for="lastName" class="form-label">Last Name<span style="color: darkred;">*</span></label>
+                        <input type="text" class="form-control" placeholder="Smith" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="col-3">
-                        <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" placeholder="John">
+                        <label for="firstName" class="form-label">First Name<span
+                                style="color: darkred;">*</span></label>
+                        <input type="text" class="form-control" placeholder="John" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
                 <div class="row mb-1 justify-content-center">
                     <div class="col-6">
-                        <label for="emailInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailInput" placeholder="example@email.com">
+                        <label for="emailInput" class="form-label">Email<span style="color: darkred;">*</span></label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="example@email.com"
+                            required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
                 <div class="row mb-1 justify-content-center">
                     <div class="col-4">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="address" class="form-control" id="addressInput" placeholder="123 Main St">
+                        <label for="address" class="form-label">Address<span style="color: darkred;">*</span></label>
+                        <input type="address" class="form-control" id="addressInput" placeholder="123 Main St" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="col-2">
-                        <label for="zipCode" class="form-label">Zip Code</label>
-                        <input type="zipCode" class="form-control" id="zipCode" placeholder="00000">
+                        <label for="zipCode" class="form-label">Zip Code<span style="color: darkred;">*</span></label>
+                        <input type="zipCode" class="form-control" id="zipCode" placeholder="00000" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
                 <div class="row mb-1 justify-content-center">
@@ -61,15 +68,17 @@
                 </div>
                 <div class="row mb-1 justify-content-center">
                     <div class="col-6">
-                        <label for="userTitle" class="form-label">Preferred Title</label>
-                        <select class="form-select form-select-lg mb-1">
-                            <option selected>Select preferred title</option>
+                        <label for="userTitle" class="form-label">Preferred Title<span
+                                style="color: darkred;">*</span></label>
+                        <select class="form-select form-select-lg mb-1" required>
+                            <option selected value="">Select preferred title</option>
                             <option value="1">Student</option>
                             <option value="2">Professor</option>
                             <option value="3">Staff</option>
                             <option value="4">Retired</option>
                             <option value="5">None</option>
                         </select>
+                        <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
                 <div class="divider-text container">Section 2 - Data Collection</div>
@@ -80,11 +89,17 @@
                     <div class="col-7"></div>
                 </div>
                 <div class="row mb-2 justify-content-center">
-                    <div class="col-1">
-                        <input type="text" class="form-control" placeholder="Smith">
+                    <!-- <div class="col-1">
+                        <input type="text" class="form-control" placeholder="Feet">
                     </div>
                     <div class="col-1">
-                        <input type="text" class="form-control" placeholder="John">
+                        <input type="text" class="form-control" placeholder="Inches">
+                    </div> -->
+                    <div class="col-2">
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Feet">
+                            <input type="number" class="form-control" placeholder="Inches">
+                        </div>
                     </div>
                     <div class="col-4"></div>
                 </div>
@@ -146,18 +161,17 @@
                     </div>
                 </div>
                 <div class="mt-5 section-divider"></div>
+                <div class="container text-center">
+                    <p class="continue-text">
+                        Continue to verify survey<br>
+                    </p>
+                    <div class="text-center">
+                        <button class="btn btn-primary mb-5" type="submit">Submit form</button>
+                    </div>
+                </div>
             </form>
         </div>
-        <div class="container text-center">
-            <p class="continue-text">
-                Continue to verify survey<br>
-            </p>
-            <div class="text-center">
-                <a class="button1 btn btn-success mb-5" href="../html/results.html" role="button">
-                    Continue
-                </a>
-            </div>
-        </div>
+        
 
 
 
