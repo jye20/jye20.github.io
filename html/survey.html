@@ -13,6 +13,7 @@
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
 
     <title>Data survey form</title>
+    <script src="../js/saveResults.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray">
@@ -31,21 +32,30 @@
                 <div class="row mb-1 justify-content-center">
                     <div class="col-3">
                         <label for="lastName" class="form-label">Last Name<span style="color: darkred;">*</span></label>
-                        <input type="text" class="form-control" placeholder="Smith" required maxlength="40">
+                        <input type="text" class="form-control" placeholder="Smith" required maxlength="40"
+                            id="lastName">
+                        <script>var item = document.getElementById('lastName').value;
+                            sessionStorage.setItem('lastName', item);</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="col-3">
                         <label for="firstName" class="form-label">First Name<span
                                 style="color: darkred;">*</span></label>
-                        <input type="text" class="form-control" placeholder="John" required maxlength="40">
+                        <input type="text" class="form-control" placeholder="John" required maxlength="40"
+                            id="firstName">
+                        <script>var item = document.getElementById('firstName').value;
+                            sessionStorage.setItem('firstName', item);</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
+
                 </div>
                 <div class="row mb-1 justify-content-center">
                     <div class="col-6">
                         <label for="emailInput" class="form-label">Email<span style="color: darkred;">*</span></label>
                         <input type="email" class="form-control" id="emailInput" placeholder="example@email.com"
                             required>
+                        <script>var item = document.getElementById('emailInput').value;
+                            sessionStorage.setItem('emailInput', item);</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
@@ -54,12 +64,16 @@
                         <label for="address" class="form-label">Address<span style="color: darkred;">*</span></label>
                         <input type="address" class="form-control" id="addressInput" placeholder="123 Main St" required
                             maxlength="40" pattern="[A-Za-z0-9 ]+">
+                        <script>var item = document.getElementById('addressInput').value;
+                            sessionStorage.setItem('addressInput', item);</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="col-2">
                         <label for="zipCode" class="form-label">Zip Code<span style="color: darkred;">*</span></label>
                         <input type="zipCode" class="form-control" id="zipCode" placeholder="00000" required
                             minlength="5" maxlength="5" pattern="[0-9]+">
+                        <script>var item = document.getElementById('zipCode').value;
+                            sessionStorage.setItem('zipCode', item);</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
@@ -68,20 +82,25 @@
                         <label for="phoneNumber" class="form-label">Phone Number</label>
                         <input type="phoneNumber" class="form-control" id="phoneNumber" placeholder="1234567890"
                             minlength="10" maxlength="10" pattern="[0-9]*">
+                        <script>var item = document.getElementById('phoneNumber').value;
+                            sessionStorage.setItem('phoneNumber', item);</script>
                     </div>
                 </div>
                 <div class="row mb-1 justify-content-center">
                     <div class="col-6">
                         <label for="userTitle" class="form-label">Preferred Title<span
                                 style="color: darkred;">*</span></label>
-                        <select class="form-select form-select-lg mb-1" required>
+                        <select class="form-select form-select-lg mb-1" required id="titleSelect">
                             <option selected value="">Select preferred title</option>
-                            <option value="1">Student</option>
-                            <option value="2">Professor</option>
-                            <option value="3">Staff</option>
-                            <option value="4">Retired</option>
-                            <option value="5">None</option>
+                            <option value="none">None</option>
+                            <option value="student">Student</option>
+                            <option value="prof">Professor</option>
+                            <option value="staff">Staff</option>
+                            <option value="retired">Retired</option>
+
                         </select>
+                        <script>var item = document.getElementById('titleSelect').value;
+                            sessionStorage.setItem('titleSelect', item);</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
@@ -96,9 +115,14 @@
                     <div class="col-2">
                         <!-- might turn this into a dropdown -->
                         <div class="input-group">
-                            <input type="feet" class="form-control" placeholder="Feet" pattern="[0-9]*" maxlength="1">
+                            <input type="feet" class="form-control" placeholder="Feet" pattern="[0-9]*" maxlength="1"
+                                id="feet">
+                            <script>var item = document.getElementById('feet').value;
+                                sessionStorage.setItem('feet', item);</script>
                             <input type="inches" class="form-control" placeholder="Inches" pattern="[0-9]*"
-                                maxlength="2">
+                                maxlength="2" id="inches">
+                            <script>var item = document.getElementById('inches').value;
+                                sessionStorage.setItem('inches', item);</script>
                         </div>
                     </div>
                     <div class="col-4"></div>
@@ -147,18 +171,23 @@
                                     Personal visit
                                 </label>
                             </div>
+                            <script>
+
+                            </script>
                         </div>
                     </div>
                 </div>
                 <div class="row mb-1 justify-content-center">
                     <div class="col-6">
                         <label for="userTitle" class="form-label">Monthly budget for services</label>
-                        <select class="form-select form-select-lg mb-1">
-                            <option selected value="0">Select monthly budget</option>
-                            <option value="1">Less than $50</option>
-                            <option value="2">Between $50 and $100</option>
-                            <option value="3">More than $100</option>
+                        <select class="form-select form-select-lg mb-1" id="budgetSelect">
+                            <option selected value="budget0">Select monthly budget</option>
+                            <option value="budget1">Less than $50</option>
+                            <option value="budget2">Between $50 and $100</option>
+                            <option value="budget3">More than $100</option>
                         </select>
+                        <script>var item = document.getElementById('budgetSelect').value;
+                            sessionStorage.setItem('budgetSelect', item);</script>
                     </div>
                 </div>
                 <div class="mt-5 section-divider"></div>
