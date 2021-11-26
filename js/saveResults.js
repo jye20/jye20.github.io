@@ -4,13 +4,30 @@ if (window.sessionStorage) {
 else {
     console.log("Session storage not supported");
 }
-// if (sessionStorage.hits) {
-//     sessionStorage.hits = Number(sessionStorage.hits) + 1;
-// } else {
-//     sessionStorage.hits = 1;
-// }
-// console.log("Total Hits: " + sessionStorage.hits);
+// window.keyArray = new Array();
+// window.valueArray = new Array();
 
-// var firstName = localStorage.getItem('firstName');
-// var emailInput = localStorage.getItem('emailInput');
-// var addressInput = localStorage.getItem('addressInput');
+
+function keepResults() {
+    // console.log(document.getElementById('lastName').value);
+    for (let i = 0; i < sessionStorage.length; i++) {
+        sessionStorage.setItem(sessionStorage.key(i), document.getElementById(sessionStorage.key(i)).value);
+        
+    }
+    // console.log(sessionStorage.getItem(sessionStorage.key(0)));
+    console.log(sessionStorage.length);
+    for (let j = 0; j < sessionStorage.length; j++) {
+        console.log(sessionStorage.key(j) + " AND " + sessionStorage.getItem(sessionStorage.key(j)));
+        // keyArray[j] = sessionStorage.key(j);
+        // valueArray[j] = sessionStorage.getItem(sessionStorage.key(j));
+    }
+
+}
+
+function transferResults() {
+    console.log("yahaha, you found me!");
+    for (let j = 0; j < sessionStorage.length; j++) {
+        console.log(sessionStorage.key(j) + " AND " + sessionStorage.getItem(sessionStorage.key(j)));
+    }
+}
+

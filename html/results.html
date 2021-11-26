@@ -11,11 +11,12 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/results.css" rel="stylesheet" type="text/css">
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
-    
+
+    <script src="../js/saveResults.js"></script>
     <title>Results Page</title>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray">
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray" onload="transferResults();">
     <nav class="navibar navbar navbar-blue">
         <div class="container-fluid">
             <span class="navbar-blue mb-0 h1">Results verification page - Jeffrey Ye</a>
@@ -33,7 +34,7 @@
                 Finish survey
             </a>
         </p>
-        
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
