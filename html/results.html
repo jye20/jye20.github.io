@@ -12,28 +12,172 @@
     <link href="../css/results.css" rel="stylesheet" type="text/css">
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
 
-    <script src="../js/saveResults.js"></script>
+    <script src="../js/surveyEval.js"></script>
     <title>Results Page</title>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray" onload="transferResults();">
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray"
+    onload="transferResults();">
     <nav class="navibar navbar navbar-blue">
         <div class="container-fluid">
             <span class="navbar-blue mb-0 h1">Results verification page - Jeffrey Ye</a>
         </div>
     </nav>
 
-    <!-- Captcha and ToS check goes here -->
-    <div class="results container h-100 d-flex justify-content-center align-items-center text-center">
-        <p class="confirmation-text">
-            Confirm survey results<br>
-            <a class="btn btn-secondary" href="../html/survey.html" role="button" id="button2">
-                Return to survey
-            </a>
-            <a class="button1 btn btn-success" href="../html/endscreen.html" role="button">
-                Finish survey
-            </a>
-        </p>
+    <div class="results container">
+        <form>
+            <div class="divider-text container">Section 1 - Basic Information</div>
+            <div class="section-divider"></div>
+            <div class="row mb-1 justify-content-center">
+                <div class="col-3">
+                    <label for="lastName" class="form-label">Last Name<span style="color: darkred;">*</span></label>
+                    <input type="text" class="form-control" value="" readonly id="lastName">
+                </div>
+                <div class="col-3">
+                    <label for="firstName" class="form-label">First Name<span style="color: darkred;">*</span></label>
+                    <input type="text" class="form-control" value="" readonly
+                        id="firstName">
+                </div>
+
+            </div>
+            <div class="row mb-1 justify-content-center">
+                <div class="col-6">
+                    <label for="emailInput" class="form-label">Email<span style="color: darkred;">*</span></label>
+                    <input type="email" class="form-control" id="emailInput" value=""
+                        readonly>
+                </div>
+            </div>
+
+            <!-- TODO: google map preview -->
+            <div class="row mb-1 justify-content-center">
+                <div class="col-4">
+                    <label for="address" class="form-label">Address<span style="color: darkred;">*</span></label>
+                    <input type="address" class="form-control" id="addressInput" value=""
+                        readonly>
+                </div>
+                <div class="col-2">
+                    <label for="zipCode" class="form-label">Zip Code<span style="color: darkred;">*</span></label>
+                    <input type="zipCode" class="form-control" id="zipCode" value="" aria-label="readonly input example"
+                        readonly>
+                </div>
+            </div>
+            <div class="row mb-1 justify-content-center">
+                <div class="col-6">
+                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                    <input type="phoneNumber" class="form-control" id="phoneNumber" value=""
+                        readonly>
+                </div>
+            </div>
+            <div class="row mb-1 justify-content-center">
+                <div class="col-6">
+                    <label for="userTitle" class="form-label">Preferred Title<span
+                            style="color: darkred;">*</span></label>
+                    <select class="form-select form-select-lg mb-1" id="titleSelect" disabled>
+                        <option selected value="">Select preferred title</option>
+                        <option value="none">None</option>
+                        <option value="student">Student</option>
+                        <option value="prof">Professor</option>
+                        <option value="staff">Staff</option>
+                        <option value="retired">Retired</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="divider-text container">Section 2 - Data Collection</div>
+            <div class="section-divider"></div>
+            <div class="row mb-1 justify-content-center">
+                <div class="col-3"></div>
+                <div class="col-2">Height</div>
+                <div class="col-7"></div>
+            </div>
+            <div class="row mb-2 justify-content-center">
+                <div class="col-2">
+                    <!-- might turn this into a dropdown -->
+                    <div class="input-group">
+                        <input type="feet" class="form-control" value="" readonly
+                            id="feet">
+
+                        <input type="inches" class="form-control" value="" readonly
+                            id="inches">
+
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3"></div>
+                <div class="col-3">Check all services below:</div>
+                <div class="col-6"></div>
+            </div>
+            <div class="container">
+                <div class="row mb-2 justify-content-center">
+                    <div class="col-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="emailCheck" disabled>
+                            <label class="form-check-label" for="emailCheck">
+                                Email
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="phoneCheck" disabled>
+                            <label class="form-check-label" for="phoneCheck">
+                                Phone
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="fbCheck" disabled>
+                            <label class="form-check-label" for="fbCheck">
+                                Facebook
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="twtCheck" disabled>
+                            <label class="form-check-label" for="twtCheck">
+                                Twitter
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="mailCheck" disabled>
+                            <label class="form-check-label" for="mailCheck">
+                                Standard mail
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="visitCheck" disabled>
+                            <label class="form-check-label" for="visitCheck">
+                                Personal visit
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1 justify-content-center">
+                    <div class="col-6">
+                        <label for="userTitle" class="form-label">Monthly budget for services</label>
+                        <select class="form-select form-select-lg mb-1" id="budgetSelect" disabled>
+                            <option selected value="">Select monthly budget</option>
+                            <option value="budget1">Less than $50</option>
+                            <option value="budget2">Between $50 and $100</option>
+                            <option value="budget3">More than $100</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-5 section-divider"></div>
+
+                <!-- TODO: captcha and terms & services checkmark-->
+                <div class="container text-center">
+                    <p class="confirmation-text">
+                        Confirm survey results<br>
+                        <a class="btn btn-secondary mb-5 mt-3" href="../html/survey.html" role="button" id="button2">
+                            Return to survey
+                        </a>
+                        <a class="button1 btn btn-success mb-5 mt-3" href="../html/endscreen.html" role="button">
+                            Finish survey
+                        </a>
+                    </p>
+                </div>
+        </form>
+
 
     </div>
 

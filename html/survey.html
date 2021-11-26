@@ -13,7 +13,7 @@
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
 
     <title>Data survey form</title>
-    <script src="../js/saveResults.js"></script>
+    <script src="../js/surveyEval.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray">
@@ -24,6 +24,7 @@
         </div>
     </nav>
 
+    <!-- TODO: retrieve results back from results after clicking "return to survey" -->
     <body>
         <div class="container">
             <form action="../html/results.html" s="needs-validation">
@@ -34,7 +35,9 @@
                         <label for="lastName" class="form-label">Last Name<span style="color: darkred;">*</span></label>
                         <input type="text" class="form-control" placeholder="Smith" required maxlength="40"
                             id="lastName">
-                        <script>sessionStorage.setItem('lastName', '');</script>
+                        <script>if (sessionStorage.getItem('lastName') === null) {
+                                sessionStorage.setItem('lastName', '');
+                            }</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="col-3">
@@ -42,7 +45,9 @@
                                 style="color: darkred;">*</span></label>
                         <input type="text" class="form-control" placeholder="John" required maxlength="40"
                             id="firstName">
-                        <script>sessionStorage.setItem('firstName', '');</script>
+                        <script>if (sessionStorage.getItem('firstName') === null) {
+                                sessionStorage.setItem('firstName', '');
+                            }</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
 
@@ -52,7 +57,9 @@
                         <label for="emailInput" class="form-label">Email<span style="color: darkred;">*</span></label>
                         <input type="email" class="form-control" id="emailInput" placeholder="example@email.com"
                             required>
-                        <script>sessionStorage.setItem('emailInput', '');</script>
+                        <script>if (sessionStorage.getItem('emailInput') === null) {
+                                sessionStorage.setItem('emailInput', '');
+                            }</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
@@ -61,14 +68,18 @@
                         <label for="address" class="form-label">Address<span style="color: darkred;">*</span></label>
                         <input type="address" class="form-control" id="addressInput" placeholder="123 Main St" required
                             maxlength="40" pattern="[A-Za-z0-9 ]+">
-                        <script>sessionStorage.setItem('addressInput', '');</script>
+                        <script>if (sessionStorage.getItem('addressInput') === null) {
+                                sessionStorage.setItem('addressInput', '');
+                            }</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     <div class="col-2">
                         <label for="zipCode" class="form-label">Zip Code<span style="color: darkred;">*</span></label>
                         <input type="zipCode" class="form-control" id="zipCode" placeholder="00000" required
                             minlength="5" maxlength="5" pattern="[0-9]+">
-                        <script>sessionStorage.setItem('zipCode', '');</script>
+                        <script>if (sessionStorage.getItem('zipCode') === null) {
+                                sessionStorage.setItem('zipCode', '');
+                            }</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
@@ -77,7 +88,9 @@
                         <label for="phoneNumber" class="form-label">Phone Number</label>
                         <input type="phoneNumber" class="form-control" id="phoneNumber" placeholder="1234567890"
                             minlength="10" maxlength="10" pattern="[0-9]*">
-                        <script>sessionStorage.setItem('phoneNumber', '');</script>
+                        <script>if (sessionStorage.getItem('phoneNumber') === null) {
+                                sessionStorage.setItem('phoneNumber', '');
+                            }</script>
                     </div>
                 </div>
                 <div class="row mb-1 justify-content-center">
@@ -91,9 +104,10 @@
                             <option value="prof">Professor</option>
                             <option value="staff">Staff</option>
                             <option value="retired">Retired</option>
-
                         </select>
-                        <script>sessionStorage.setItem('titleSelect', '');</script>
+                        <script>if (sessionStorage.getItem('titleSelect') === null) {
+                                sessionStorage.setItem('titleSelect', '');
+                            }</script>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                 </div>
@@ -110,10 +124,14 @@
                         <div class="input-group">
                             <input type="feet" class="form-control" placeholder="Feet" pattern="[0-9]*" maxlength="1"
                                 id="feet">
-                            <script>sessionStorage.setItem('feet', '');</script>
+                            <script>if (sessionStorage.getItem('feet') === null) {
+                                    sessionStorage.setItem('feet', '');
+                                }</script>
                             <input type="inches" class="form-control" placeholder="Inches" pattern="[0-9]*"
                                 maxlength="2" id="inches">
-                            <script>sessionStorage.setItem('inches', '');</script>
+                            <script>if (sessionStorage.getItem('inches') === null) {
+                                    sessionStorage.setItem('inches', '');
+                                }</script>
                         </div>
                     </div>
                     <div class="col-4"></div>
@@ -127,65 +145,86 @@
                     <div class="row mb-2 justify-content-center">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="emailCheck">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="emailCheck" onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="emailCheck">
                                     Email
                                 </label>
+                                <script>if (sessionStorage.getItem('emailCheck') === null) {
+                                    sessionStorage.setItem('emailCheck', '');
+                                }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="phoneCheck">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="phoneCheck" onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="phoneCheck">
                                     Phone
                                 </label>
+                                <script>if (sessionStorage.getItem('phoneCheck') === null) {
+                                    sessionStorage.setItem('phoneCheck', '');
+                                }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="fbCheck">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="fbCheck" onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="fbCheck">
                                     Facebook
                                 </label>
+                                <script>if (sessionStorage.getItem('fbCheck') === null) {
+                                    sessionStorage.setItem('fbCheck', '');
+                                }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="twtCheck">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="twtCheck" onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="twtCheck">
                                     Twitter
                                 </label>
+                                <script>if (sessionStorage.getItem('twtCheck') === null) {
+                                    sessionStorage.setItem('twtCheck', '');
+                                }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="mailCheck">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="mailCheck" onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="mailCheck">
                                     Standard mail
                                 </label>
+                                <script>if (sessionStorage.getItem('mailCheck') === null) {
+                                    sessionStorage.setItem('mailCheck', '');
+                                }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="visitCheck">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="visitCheck" onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="visitCheck">
                                     Personal visit
                                 </label>
+                                <script>if (sessionStorage.getItem('visitCheck') === null) {
+                                    sessionStorage.setItem('visitCheck', '');
+                                }</script>
                             </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-1 justify-content-center">
-                    <div class="col-6">
-                        <label for="userTitle" class="form-label">Monthly budget for services</label>
-                        <select class="form-select form-select-lg mb-1" id="budgetSelect">
-                            <option selected value="budget0">Select monthly budget</option>
-                            <option value="budget1">Less than $50</option>
-                            <option value="budget2">Between $50 and $100</option>
-                            <option value="budget3">More than $100</option>
-                        </select>
-                        <script>sessionStorage.setItem('budgetSelect', '');</script>
+                    <div class="row mb-1 justify-content-center">
+                        <div class="col-6">
+                            <label for="userTitle" class="form-label">Monthly budget for services</label>
+                            <select class="form-select form-select-lg mb-1" id="budgetSelect">
+                                <option selected value="">Select monthly budget</option>
+                                <option value="budget1">Less than $50</option>
+                                <option value="budget2">Between $50 and $100</option>
+                                <option value="budget3">More than $100</option>
+                            </select>
+                            <script>if (sessionStorage.getItem('budgetSelect') === null) {
+                                    sessionStorage.setItem('budgetSelect', '');
+                                }</script>
+                        </div>
                     </div>
-                </div>
-                <div class="mt-5 section-divider"></div>
-                <div class="container text-center">
-                    <p class="continue-text">
-                        Continue to verify survey<br>
-                    </p>
-                    <div class="text-center">
-                        <button class="btn btn-primary mb-5" type="submit" id="submitButton" onclick="keepResults();">Submit
-                            form</button>
+                    <div class="mt-5 section-divider"></div>
+                    <div class="container text-center">
+                        <p class="continue-text">
+                            Continue to verify survey<br>
+                        </p>
+                        <div class="text-center">
+                            <button class="btn btn-primary mb-5" type="submit" id="submitButton"
+                                onclick="keepResults();">Submit
+                                form</button>
+                        </div>
                     </div>
-                </div>
             </form>
         </div>
 
