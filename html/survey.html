@@ -14,7 +14,8 @@
 
     <title>Data survey form</title>
     <script src="../js/surveyEval.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer>console.log("Captcha should be loading...");</script>
+    <script src="https://www.google.com/recaptcha/api.js" async
+        defer>console.log("Captcha should be loading...");</script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray">
@@ -227,7 +228,10 @@
                         <p class="continue-text">
                             Continue to verify survey<br>
                         </p>
-                        <div class="g-recaptcha" data-sitekey="6LfMJ2EdAAAAAGCuL0mERktuZXdo0Us4MAjUYze0">captcha should be here</div>
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LfMJ2EdAAAAAGCuL0mERktuZXdo0Us4MAjUYze0">captcha
+                                should be here</div>
+                        </div>
                         <button class="btn btn-primary mb-5" type="submit" id="submitButton"
                             onclick="keepResults();">Submit
                             form</button>
