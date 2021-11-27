@@ -14,11 +14,18 @@
 
     <title>Data survey form</title>
     <script src="../js/surveyEval.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async
-        defer>console.log("Captcha should be loading...");</script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>// set captcha to be required
+        window.onload = function () {
+            var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+            if ($recaptcha) {
+                $recaptcha.setAttribute("required", "required");
+            }
+        };</script>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray">
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray" onload="transferResults();">
     <nav class="navibar navbar navbar-blue">
         <div class="container-fluid">
             <span class="navbar-blue mb-0 h1">
@@ -26,11 +33,9 @@
         </div>
     </nav>
 
-    <!-- TODO: retrieve results back from results after clicking "return to survey" -->
-
     <body>
         <div class="container">
-            <form action="../html/results.html" s="needs-validation">
+            <form action="../html/results.html" onsubmit="keepResults();" s="needs-validation">
                 <div class="divider-text container">Section 1 - Basic Information</div>
                 <div class="section-divider"></div>
                 <div class="row mb-1 justify-content-center">
@@ -229,10 +234,10 @@
                             Continue to verify survey<br>
                         </p>
                         <div class="form-group">
-                            <div class="g-recaptcha" align="center" data-sitekey="6LfMJ2EdAAAAAGCuL0mERktuZXdo0Us4MAjUYze0" required></div>
+                            <div class="g-recaptcha" align="center"
+                                data-sitekey="6LfMJ2EdAAAAAGCuL0mERktuZXdo0Us4MAjUYze0"></div>
                         </div>
-                        <button class="btn btn-primary mb-5" type="submit" id="submitButton"
-                            onclick="keepResults();">Submit
+                        <button class="btn btn-primary mb-5" type="submit" id="submitButton">Submit
                             form</button>
                     </div>
             </form>
