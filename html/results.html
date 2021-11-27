@@ -13,12 +13,13 @@
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
 
     <script src="../js/surveyEval.js"></script>
+    <script src="../js/localMap.js"></script>
     <title>Results Page</title>
 </head>
 
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray"
-    onload="transferResults();">
+    onload="transferResults(); initMap();">
     <nav class="navibar navbar navbar-blue">
         <div class="container-fluid">
             <span class="navbar-blue mb-0 h1">Results verification page - Jeffrey Ye</a>
@@ -36,25 +37,23 @@
                 </div>
                 <div class="col-3">
                     <label for="firstName" class="form-label">First Name<span style="color: darkred;">*</span></label>
-                    <input type="text" class="form-control" value="" readonly
-                        id="firstName">
+                    <input type="text" class="form-control" value="" readonly id="firstName">
                 </div>
 
             </div>
             <div class="row mb-1 justify-content-center">
                 <div class="col-6">
                     <label for="emailInput" class="form-label">Email<span style="color: darkred;">*</span></label>
-                    <input type="email" class="form-control" id="emailInput" value=""
-                        readonly>
+                    <input type="email" class="form-control" id="emailInput" value="" readonly>
                 </div>
             </div>
 
             <!-- TODO: google map preview -->
-            <div class="row mb-1 justify-content-center">
+
+            <div class="row mb-4 justify-content-center">
                 <div class="col-4">
                     <label for="address" class="form-label">Address<span style="color: darkred;">*</span></label>
-                    <input type="address" class="form-control" id="addressInput" value=""
-                        readonly>
+                    <input type="address" class="form-control" id="addressInput" value="" readonly>
                 </div>
                 <div class="col-2">
                     <label for="zipCode" class="form-label">Zip Code<span style="color: darkred;">*</span></label>
@@ -63,10 +62,12 @@
                 </div>
             </div>
             <div class="row mb-1 justify-content-center">
+                <div class="mb-3 col-6" id="map" style="height: 300px;"></div>
+            </div>
+            <div class="row mb-1 justify-content-center">
                 <div class="col-6">
                     <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="phoneNumber" class="form-control" id="phoneNumber" value=""
-                        readonly>
+                    <input type="phoneNumber" class="form-control" id="phoneNumber" value="" readonly>
                 </div>
             </div>
             <div class="row mb-1 justify-content-center">
@@ -95,11 +96,9 @@
                 <div class="col-2">
                     <!-- might turn this into a dropdown -->
                     <div class="input-group">
-                        <input type="feet" class="form-control" value="" readonly
-                            id="feet">
+                        <input type="feet" class="form-control" value="" readonly id="feet">
 
-                        <input type="inches" class="form-control" value="" readonly
-                            id="inches">
+                        <input type="inches" class="form-control" value="" readonly id="inches">
 
                     </div>
                 </div>
@@ -165,8 +164,18 @@
                 <div class="mt-5 section-divider"></div>
 
                 <!-- TODO: captcha and terms & services checkmark-->
-                <div class="container text-center">
-                    <p class="confirmation-text">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="form-check col-2">
+                            <input class="form-check-input" type="checkbox" value="" id="tosCheck" disabled>
+                            <label class="form-check-label" for="tosCheck"><a href="">
+                                    Terms of Service
+                                </a>
+                            </label>
+                        </div>
+                    </div>
+                    <p class="confirmation-text text-center">
                         Confirm survey results<br>
                         <a class="btn btn-secondary mb-5 mt-3" href="../html/survey.html" role="button" id="button2">
                             Return to survey
@@ -177,13 +186,18 @@
                     </p>
                 </div>
         </form>
-
-
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+    <!-- No callback for initMap here. We need to wait for everything else to init first since we're
+        trying to pull the address. -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2L6B_OAGKb1FrpI7aitzgN_ncw3ULglU&libraries=places&v=weekly"
+        async></script>
 
 
 </body>
