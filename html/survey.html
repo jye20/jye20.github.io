@@ -15,18 +15,11 @@
     <title>Data survey form</title>
     <script src="../js/surveyEval.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>// set captcha to be required
-        window.onload = function () {
-            var $recaptcha = document.querySelector('#g-recaptcha-response');
-
-            if ($recaptcha) {
-                $recaptcha.setAttribute("required", "required");
-            }
-        };</script>
+    <script src="../js/captcha.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray"
-    onload="transferResults();">
+    onload="transferResults(); captchaInit();">
     <nav class="navibar navbar navbar-blue">
         <div class="container-fluid">
             <span class="navbar-blue mb-0 h1">

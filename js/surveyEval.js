@@ -22,7 +22,7 @@ function transferResults() {
     for (let j = 0; j < sessionStorage.length; j++) {
         var currentKey = sessionStorage.key(j);
         var currentValue = sessionStorage.getItem(currentKey);
-        console.log(currentKey + " AND " + currentValue);
+        //console.log(currentKey + " AND " + currentValue);
         if (currentValue.value !== null) {
             document.getElementById(currentKey).value = currentValue;
             if (currentValue === "checked") {
