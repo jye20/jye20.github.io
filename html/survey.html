@@ -14,6 +14,7 @@
 
     <title>Data survey form</title>
     <script src="../js/surveyEval.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color:lightgray">
@@ -25,6 +26,7 @@
     </nav>
 
     <!-- TODO: retrieve results back from results after clicking "return to survey" -->
+
     <body>
         <div class="container">
             <form action="../html/results.html" s="needs-validation">
@@ -145,58 +147,64 @@
                     <div class="row mb-2 justify-content-center">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="unchecked" id="emailCheck" onclick="toggleCheck(id)">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="emailCheck"
+                                    onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="emailCheck">
                                     Email
                                 </label>
                                 <script>if (sessionStorage.getItem('emailCheck') === null) {
-                                    sessionStorage.setItem('emailCheck', '');
-                                }</script>
+                                        sessionStorage.setItem('emailCheck', '');
+                                    }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="unchecked" id="phoneCheck" onclick="toggleCheck(id)">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="phoneCheck"
+                                    onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="phoneCheck">
                                     Phone
                                 </label>
                                 <script>if (sessionStorage.getItem('phoneCheck') === null) {
-                                    sessionStorage.setItem('phoneCheck', '');
-                                }</script>
+                                        sessionStorage.setItem('phoneCheck', '');
+                                    }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="unchecked" id="fbCheck" onclick="toggleCheck(id)">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="fbCheck"
+                                    onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="fbCheck">
                                     Facebook
                                 </label>
                                 <script>if (sessionStorage.getItem('fbCheck') === null) {
-                                    sessionStorage.setItem('fbCheck', '');
-                                }</script>
+                                        sessionStorage.setItem('fbCheck', '');
+                                    }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="unchecked" id="twtCheck" onclick="toggleCheck(id)">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="twtCheck"
+                                    onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="twtCheck">
                                     Twitter
                                 </label>
                                 <script>if (sessionStorage.getItem('twtCheck') === null) {
-                                    sessionStorage.setItem('twtCheck', '');
-                                }</script>
+                                        sessionStorage.setItem('twtCheck', '');
+                                    }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="unchecked" id="mailCheck" onclick="toggleCheck(id)">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="mailCheck"
+                                    onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="mailCheck">
                                     Standard mail
                                 </label>
                                 <script>if (sessionStorage.getItem('mailCheck') === null) {
-                                    sessionStorage.setItem('mailCheck', '');
-                                }</script>
+                                        sessionStorage.setItem('mailCheck', '');
+                                    }</script>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="unchecked" id="visitCheck" onclick="toggleCheck(id)">
+                                <input class="form-check-input" type="checkbox" value="unchecked" id="visitCheck"
+                                    onclick="toggleCheck(id)">
                                 <label class="form-check-label" for="visitCheck">
                                     Personal visit
                                 </label>
                                 <script>if (sessionStorage.getItem('visitCheck') === null) {
-                                    sessionStorage.setItem('visitCheck', '');
-                                }</script>
+                                        sessionStorage.setItem('visitCheck', '');
+                                    }</script>
                             </div>
                         </div>
                     </div>
@@ -216,14 +224,15 @@
                     </div>
                     <div class="mt-5 section-divider"></div>
                     <div class="container text-center">
+                        <div class="text-center">
+                            <div class="g-recaptcha" data-sitekey="6LfMJ2EdAAAAAGCuL0mERktuZXdo0Us4MAjUYze0"></div>
+                        </div>
                         <p class="continue-text">
                             Continue to verify survey<br>
                         </p>
-                        <div class="text-center">
-                            <button class="btn btn-primary mb-5" type="submit" id="submitButton"
-                                onclick="keepResults();">Submit
-                                form</button>
-                        </div>
+                        <button class="btn btn-primary mb-5" type="submit" id="submitButton"
+                            onclick="keepResults();">Submit
+                            form</button>
                     </div>
             </form>
         </div>
