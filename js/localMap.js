@@ -1,3 +1,6 @@
+// First sets up a default location for map/marker initialization, then grabs the inputted location.
+// After the map and marker are initialized, a service is created to attempt to use the inputted location
+// as a proper location in the map. If the location is found, then the map is moved there with a set marker.
 function initMap(){
     // console.log("initing map...");
     var defaultLoc = {lat: 0, lng: 0};

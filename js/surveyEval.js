@@ -1,10 +1,15 @@
-if (window.sessionStorage) {
-    // console.log("Session storage supported");
-}
-else {
-    // console.log("Session storage not supported");
-}
+// debug
+// if (window.sessionStorage) {
+//     // console.log("Session storage supported");
+// }
+// else {
+//     // console.log("Session storage not supported");
+// }
 
+// Saves the results of the page to the session storage by going into
+// previously initted session storage to get the keys and then the inputs
+// are all saved properly in the session storage.
+// Saved to session because the data automatically wipes once the page is closed.
 function keepResults() {
     // console.log(document.getElementById('lastName').value);
     for (let i = 0; i < sessionStorage.length; i++) {
@@ -17,6 +22,7 @@ function keepResults() {
     }
 }
 
+// Moves all the saved information in the session to be displayed and saved onto the page.
 function transferResults() {
     // console.log("yahaha, you found me!");
     for (let j = 0; j < sessionStorage.length; j++) {
